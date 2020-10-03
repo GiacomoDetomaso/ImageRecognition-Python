@@ -11,11 +11,16 @@ duplicate = cv.imread(pathDuplicate)
 if original.shape == duplicate.shape:
     print("The images have the same size and channels")
     diff_image = cv.subtract(original, duplicate)  # subtraction between the images
-
-    r, g, b = cv.split(diff_image)  # split the output of the subtraction into his three main channel
-
+    r, g, b = cv.split(diff_image)
     if cv.countNonZero(r) == 0 and cv.countNonZero(g) == 0 and cv.countNonZero(b) == 0:
         print("The images are equals")
+        cv.imshow("r", r)
+        cv.waitKey(0)
 
+        cv.imshow("g",g)
+        cv.waitKey(0)
+
+        cv.imshow("b",b)
+        cv.waitKey(0)
 else:
     print("The images are different")
